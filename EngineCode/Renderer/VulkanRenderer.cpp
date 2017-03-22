@@ -21,7 +21,13 @@ VulkanRenderer::~VulkanRenderer()
 //---------------------------------------------------------------------------------------------------
 VKAPI_ATTR VkBool32 VKAPI_CALL VulkanRenderer::ValidationLayerCallback(VkDebugReportFlagsEXT flags,VkDebugReportObjectTypeEXT objType,uint64_t obj, size_t location, int32_t code, const char* layerPrefix, const char* msg, void* userData) 
 {
-
+	//UNUSED(flags);
+	//UNUSED(objType);
+	//UNUSED(obj);
+	//UNUSED(location);
+	//UNUSED(code);
+	//UNUSED(layerPrefix);
+	//UNUSED(userData);
 	std::cerr << "validation layer: " << msg << std::endl;
 
 	return VK_FALSE;
@@ -88,8 +94,8 @@ void VulkanRenderer::CreateInstance()
 	
 	if (m_enableValidationLayers) 
 	{
-		createInfo.enabledLayerCount = m_validationLayers.size();
-		createInfo.ppEnabledLayerNames = m_validationLayers.data();
+		createInfo.enabledLayerCount	= (uint32_t)m_validationLayers.size();
+		createInfo.ppEnabledLayerNames	= m_validationLayers.data();
 	}
 	else 
 	{

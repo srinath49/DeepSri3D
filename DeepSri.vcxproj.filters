@@ -43,6 +43,9 @@
     <ClCompile Include="EngineCode\Renderer\VulkanRenderer.cpp">
       <Filter>EngineCode\Renderer</Filter>
     </ClCompile>
+    <ClCompile Include="Main\PrecompiledDefinitions.cpp">
+      <Filter>Main</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="EngineCode\Renderer\BaseRenderer.hpp">
@@ -62,6 +65,9 @@
     </ClInclude>
     <ClInclude Include="EngineCode\Renderer\VulkanRenderer.hpp">
       <Filter>EngineCode\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="Main\PrecompiledDefinitions.hpp">
+      <Filter>Main</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

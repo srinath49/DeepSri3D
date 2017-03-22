@@ -1,4 +1,5 @@
 #include "BaseApp.hpp"
+#include "Main/PrecompiledDefinitions.hpp"
 #include "EngineCode/Renderer/BaseRenderer.hpp"
 #include "EngineCode/Window/BaseWindow.hpp"
 

@@ -1,4 +1,5 @@
 #include "BaseRenderer.hpp"
+#include "Main/PrecompiledDefinitions.hpp"
 
 //---------------------------------------------------------------------------------------------------
 BaseRenderer::BaseRenderer()

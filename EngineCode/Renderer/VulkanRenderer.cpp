@@ -1,4 +1,5 @@
 #include "VulkanRenderer.hpp"
+#include "Main/PrecompiledDefinitions.hpp"
 #include "glfw3.h"
 #include <iostream>
 

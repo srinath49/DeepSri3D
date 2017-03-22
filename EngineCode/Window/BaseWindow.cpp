@@ -1,4 +1,5 @@
 #include "BaseWindow.hpp"
+#include "Main/PrecompiledDefinitions.hpp"
 
 //---------------------------------------------------------------------------------------------------
 BaseWindow::BaseWindow()

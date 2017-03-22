@@ -1,4 +1,5 @@
 #include "Win32VulkanApp.hpp"
+#include "Main/PrecompiledDefinitions.hpp"
 #include "EngineCode/Window/GlfwWindow.hpp"
 #include "EngineCode/Renderer/VulkanRenderer.hpp"
 

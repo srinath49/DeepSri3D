@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Main">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="EngineCode">
+      <UniqueIdentifier>{071f52a7-0570-4476-8d90-cadea3a6c782}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="EngineCode\App">
+      <UniqueIdentifier>{09b3732f-790b-4040-9776-4db725e833c9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="EngineCode\Renderer">
+      <UniqueIdentifier>{b60c058d-a92f-4543-b095-2bd2266db2c4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="EngineCode\Window">
+      <UniqueIdentifier>{e4da14ef-fbdc-4e64-8d3d-f50bb1de450f}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Main\main.cpp">
+      <Filter>Main</Filter>
+    </ClCompile>
+    <ClCompile Include="EngineCode\App\BaseApp.cpp">
+      <Filter>EngineCode\App</Filter>
+    </ClCompile>
+    <ClCompile Include="EngineCode\App\Win32VulkanApp.cpp">
+      <Filter>EngineCode\App</Filter>
+    </ClCompile>
+    <ClCompile Include="EngineCode\Renderer\BaseRenderer.cpp">
+      <Filter>EngineCode\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="EngineCode\Window\BaseWindow.cpp">
+      <Filter>EngineCode\Window</Filter>
+    </ClCompile>
+    <ClCompile Include="EngineCode\Window\GlfwWindow.cpp">
+      <Filter>EngineCode\Window</Filter>
+    </ClCompile>
+    <ClCompile Include="EngineCode\Renderer\VulkanRenderer.cpp">
+      <Filter>EngineCode\Renderer</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="EngineCode\Renderer\BaseRenderer.hpp">
+      <Filter>EngineCode\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="EngineCode\App\BaseApp.hpp">
+      <Filter>EngineCode\App</Filter>
+    </ClInclude>
+    <ClInclude Include="EngineCode\App\Win32VulkanApp.hpp">
+      <Filter>EngineCode\App</Filter>
+    </ClInclude>
+    <ClInclude Include="EngineCode\Window\BaseWindow.hpp">
+      <Filter>EngineCode\Window</Filter>
+    </ClInclude>
+    <ClInclude Include="EngineCode\Window\GlfwWindow.hpp">
+      <Filter>EngineCode\Window</Filter>
+    </ClInclude>
+    <ClInclude Include="EngineCode\Renderer\VulkanRenderer.hpp">
+      <Filter>EngineCode\Renderer</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

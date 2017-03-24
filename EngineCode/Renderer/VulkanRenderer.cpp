@@ -260,6 +260,8 @@ void VulkanRenderer::GatherPhysicalDevices()
 	{
 		throw std::runtime_error("failed to find a suitable GPU!");
 	}
+
+	std::cout << "Number of suitable devices found: " << numValidDevices << std::endl;
 }
 
 //---------------------------------------------------------------------------------------------------
@@ -271,5 +273,36 @@ bool VulkanRenderer::IsPhysicalDeviceSuitable(VkPhysicalDevice deviceToCheck)
 	VkPhysicalDeviceFeatures deviceFeatures;
 	vkGetPhysicalDeviceFeatures(deviceToCheck, &deviceFeatures);
 
-	return deviceProperties.deviceType == VK_PHYSICAL_DEVICE_TYPE_DISCRETE_GPU && deviceFeatures.geometryShader;
+	QueueFamilyIndices indices = FindQueueFamilies(deviceToCheck);
+
+	return (deviceProperties.deviceType == VK_PHYSICAL_DEVICE_TYPE_DISCRETE_GPU && deviceFeatures.geometryShader && indices.IsComplete());
+}
+
+//---------------------------------------------------------------------------------------------------
+QueueFamilyIndices VulkanRenderer::FindQueueFamilies(VkPhysicalDevice deviceToFindQueues)
+{
+	QueueFamilyIndices indices;
+	
+	uint32_t queueFamilyCount = 0;
+	vkGetPhysicalDeviceQueueFamilyProperties(deviceToFindQueues, &queueFamilyCount, nullptr);
+
+	std::vector<VkQueueFamilyProperties> queueFamilies(queueFamilyCount);
+	vkGetPhysicalDeviceQueueFamilyProperties(deviceToFindQueues, &queueFamilyCount, queueFamilies.data());
+
+	int i = 0;
+	for (const auto& queueFamily : queueFamilies)
+	{
+		if (queueFamily.queueCount > 0 && queueFamily.queueFlags & VK_QUEUE_GRAPHICS_BIT)
+		{
+			indices.graphicsFamily = i;
+		}
+
+		if (indices.IsComplete())
+		{
+			break;
+		}
+
+		i++;
+	}
+	return indices;
 }

@@ -9,6 +9,16 @@
 #include <vector>
 
 //---------------------------------------------------------------------------------------------------
+struct QueueFamilyIndices
+{
+	int graphicsFamily = -1;
+	bool IsComplete()
+	{
+		return graphicsFamily > -1;
+	}
+};
+
+//---------------------------------------------------------------------------------------------------
 class VulkanRenderer : public BaseRenderer
 {
 public:
@@ -34,6 +44,8 @@ private:
 	void						CreateCommandBuffers();
 	void						GatherPhysicalDevices();
 	bool						IsPhysicalDeviceSuitable(VkPhysicalDevice deviceToCheck);
+	QueueFamilyIndices			FindQueueFamilies(VkPhysicalDevice device);
+
 private:
 	VkInstance						m_instance;
 	bool							m_enableValidationLayers;

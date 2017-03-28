@@ -5,13 +5,16 @@
 #define _BASE_RENDERER_H_
 
 //---------------------------------------------------------------------------------------------------
+class BaseWindow;
+
+//---------------------------------------------------------------------------------------------------
 class BaseRenderer
 {
 public:
 	BaseRenderer();
 	virtual ~BaseRenderer();
 
-	virtual void Initialize();
+	virtual void Initialize(BaseWindow* window);
 	virtual void Update();
 	virtual void Draw();
 

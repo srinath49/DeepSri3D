@@ -1,5 +1,6 @@
 #include "BaseRenderer.hpp"
 #include "Main/PrecompiledDefinitions.hpp"
+#include "../Window/BaseWindow.hpp"
 
 //---------------------------------------------------------------------------------------------------
 BaseRenderer::BaseRenderer()
@@ -15,9 +16,9 @@ BaseRenderer::~BaseRenderer()
 }
 
 //---------------------------------------------------------------------------------------------------
-void BaseRenderer::Initialize()
+void BaseRenderer::Initialize(BaseWindow* window)
 {
-
+	UNUSED(window);
 }
 
 //---------------------------------------------------------------------------------------------------

@@ -7,7 +7,7 @@
 #include "BaseWindow.hpp"
 
 //---------------------------------------------------------------------------------------------------
-class GLFWwindow;
+struct GLFWwindow;
 
 //---------------------------------------------------------------------------------------------------
 class GlfwWindow : public BaseWindow
@@ -16,9 +16,10 @@ public:
 	GlfwWindow();
 	virtual ~GlfwWindow();
 
-	void Initialize() override;
-	void Uninitialize() override;
-	void Update() override;
+	void	Initialize() override;
+	void	Uninitialize() override;
+	void	Update() override;
+	void*	GetWindowHandle() override;
 
 private:
 	GLFWwindow*		m_glfwWindow;

@@ -50,3 +50,9 @@ void GlfwWindow::Update()
 		glfwPollEvents();
 	}
 }
+
+//---------------------------------------------------------------------------------------------------
+void* GlfwWindow::GetWindowHandle()
+{
+	return m_glfwWindow;
+}

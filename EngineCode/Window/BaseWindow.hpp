@@ -10,9 +10,10 @@ public:
 	BaseWindow();
 	virtual ~BaseWindow();
 
-	virtual void Initialize();
-	virtual void Uninitialize();
-	virtual void Update();
+	virtual void	Initialize();
+	virtual void	Uninitialize();
+	virtual void	Update();
+	virtual void*	GetWindowHandle();
 
 protected:
 	bool		m_isInitialized;

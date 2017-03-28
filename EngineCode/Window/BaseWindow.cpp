@@ -31,3 +31,9 @@ void BaseWindow::Update()
 {
 
 }
+
+//---------------------------------------------------------------------------------------------------
+void* BaseWindow::GetWindowHandle()
+{
+	return nullptr;
+}

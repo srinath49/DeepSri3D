@@ -22,7 +22,7 @@ Win32VulkanApp::~Win32VulkanApp()
 void Win32VulkanApp::Initialize()
 {
 	m_window->Initialize();
-	m_renderer->Initialize();
+	m_renderer->Initialize(m_window);
 }
 
 //---------------------------------------------------------------------------------------------------

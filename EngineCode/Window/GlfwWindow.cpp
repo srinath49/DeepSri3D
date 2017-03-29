@@ -5,8 +5,8 @@
 #include "EngineCode/App/BaseApp.hpp"
 
 //---------------------------------------------------------------------------------------------------
-GlfwWindow::GlfwWindow()
-	: BaseWindow()
+GlfwWindow::GlfwWindow(BaseApp* appHandle)
+	: BaseWindow(appHandle)
 {
 	glfwInit();
 }
@@ -26,9 +26,12 @@ void GlfwWindow::Initialize()
 
 	if (m_glfwWindow)
 	{
-		m_isInitialized = true;
-		BaseApp::s_isRunning = true;
+		m_isInitialized			= true;
+		BaseApp::s_isRunning	= true;
 	}
+
+	glfwSetWindowUserPointer(m_glfwWindow, this);
+	glfwSetWindowSizeCallback(m_glfwWindow, GlfwWindow::OnWindowResize);
 }
 
 //---------------------------------------------------------------------------------------------------
@@ -55,4 +58,14 @@ void GlfwWindow::Update()
 void* GlfwWindow::GetWindowHandle()
 {
 	return m_glfwWindow;
+}
+
+//---------------------------------------------------------------------------------------------------
+void GlfwWindow::OnWindowResize(GLFWwindow* window, int width, int height)
+{
+	UNUSED(window);
+	if (s_appHandle)
+	{
+		s_appHandle->NotifyWindowResize(width, height);
+	}
 }

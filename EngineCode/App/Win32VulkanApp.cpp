@@ -8,8 +8,8 @@
 Win32VulkanApp::Win32VulkanApp()
 	: BaseApp()
 {
-	m_window	= new GlfwWindow();
-	m_renderer	= new VulkanRenderer();
+	m_window	= new GlfwWindow(this);
+	m_renderer	= new VulkanRenderer(this);
 }
 
 //---------------------------------------------------------------------------------------------------
@@ -33,5 +33,14 @@ void Win32VulkanApp::MainLoop()
 		m_window->Update();
 		m_renderer->Update();
 		m_renderer->Draw();
+	}
+}
+
+//---------------------------------------------------------------------------------------------------
+void Win32VulkanApp::NotifyWindowResize(int width, int height)
+{
+	if (m_renderer)
+	{
+		m_renderer->OnWindowResize(width, height);
 	}
 }

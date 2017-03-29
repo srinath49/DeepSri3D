@@ -1,10 +1,11 @@
 #include "BaseRenderer.hpp"
 #include "Main/PrecompiledDefinitions.hpp"
-#include "../Window/BaseWindow.hpp"
+#include "EngineCode/Window/BaseWindow.hpp"
 
 //---------------------------------------------------------------------------------------------------
-BaseRenderer::BaseRenderer()
+BaseRenderer::BaseRenderer(BaseApp* appHandle)
 	: m_isInitialized(false)
+	, m_appHandle(appHandle)
 {
 
 }
@@ -12,7 +13,7 @@ BaseRenderer::BaseRenderer()
 //---------------------------------------------------------------------------------------------------
 BaseRenderer::~BaseRenderer()
 {
-
+	m_appHandle = nullptr;
 }
 
 //---------------------------------------------------------------------------------------------------
@@ -31,4 +32,11 @@ void BaseRenderer::Update()
 void BaseRenderer::Draw()
 {
 	
+}
+
+//---------------------------------------------------------------------------------------------------
+void BaseRenderer::OnWindowResize(int width, int height)
+{
+	UNUSED(width);
+	UNUSED(height);
 }

@@ -4,10 +4,13 @@
 #define _BASE_WINDOW_H_
 
 //---------------------------------------------------------------------------------------------------
+class BaseApp;
+
+//---------------------------------------------------------------------------------------------------
 class BaseWindow
 {
 public:
-	BaseWindow();
+	BaseWindow(BaseApp* appHandle);
 	virtual ~BaseWindow();
 
 	virtual void	Initialize();
@@ -16,7 +19,8 @@ public:
 	virtual void*	GetWindowHandle();
 
 protected:
-	bool		m_isInitialized;
+	bool			m_isInitialized;
+	static BaseApp*	s_appHandle;
 
 };
 #endif // !_BASE_WINDOW_H_

@@ -10,6 +10,7 @@
 
 //---------------------------------------------------------------------------------------------------
 class BaseWindow;
+class BaseApp;
 
 //---------------------------------------------------------------------------------------------------
 struct QueueFamilyIndices
@@ -34,12 +35,14 @@ struct SwapChainSupportDetails
 class VulkanRenderer : public BaseRenderer
 {
 public:
-	VulkanRenderer();
+	VulkanRenderer(BaseApp* appHandle);
 	virtual ~VulkanRenderer();
 
 	void Initialize(BaseWindow* window) override;
 	void Update()		override;
 	void Draw()			override;
+
+	void OnWindowResize(int width, int height) override;
 
 private:
 	static VKAPI_ATTR VkBool32 VKAPI_CALL	ValidationLayerCallback(VkDebugReportFlagsEXT flags, VkDebugReportObjectTypeEXT objType, uint64_t obj, size_t location, int32_t code, const char* layerPrefix, const char* msg, void* userData);
@@ -79,6 +82,13 @@ private:
 	void									DestroyRenderPass();
 	void									CreateFrameBuffers();
 	void									DestroyFrameBuffers();
+	void									CreateCommandPool();
+	void									DestroyCommandPool();
+	void									CreateCommandBuffers();
+	void									DestroyCommandBuffers();
+	void									CreateSemaphores();
+	void									DestroySemaphores();
+	void									RecreateSwapChain();
 
 private:
 	VkInstance								m_instance;
@@ -101,5 +111,10 @@ private:
 	VkRenderPass							m_renderPass;
 	VkPipeline								m_graphicsPipeline;
 	std::vector<VkFramebuffer>				m_swapChainFrameBuffers;
+	VkCommandPool							m_commandPool;
+	std::vector<VkCommandBuffer>			m_commandBuffers;
+	VkSemaphore								m_imageAvailableSemaphore;
+	VkSemaphore								m_renderFinishedSemaphore;
+
 };
 #endif // !_VULKAN_RENDERER_H_

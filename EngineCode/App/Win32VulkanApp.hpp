@@ -16,5 +16,8 @@ public:
 protected:
 	virtual void Initialize();
 	virtual void MainLoop();
+
+public:
+	void NotifyWindowResize(int width, int height) override;
 };
 #endif // !_APP_WIN32_VULKAN_H_

@@ -50,3 +50,20 @@ void BaseApp::Uninitialize()
 
 	m_isInitialized = false;
 }
+
+//---------------------------------------------------------------------------------------------------
+void* BaseApp::GetWindowHandle()
+{
+	if (m_window)
+	{
+		return m_window->GetWindowHandle();
+	}
+	return nullptr;
+}
+
+//---------------------------------------------------------------------------------------------------
+void BaseApp::NotifyWindowResize(int width, int height)
+{
+	UNUSED(width);
+	UNUSED(height);
+}

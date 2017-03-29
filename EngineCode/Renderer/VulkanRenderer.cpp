@@ -675,7 +675,6 @@ void VulkanRenderer::CreateSwapChain()
 	vkGetSwapchainImagesKHR(m_logicalDevices[0], m_swapChain, &imageCount, m_swapChainImages.data());
 	m_swapChainImageFormat	= surfaceFormat.format;
 	m_swapChainExtent		= extent;
-	//vkDestroySwapchainKHR(m_logicalDevices[0], newSwapChain, nullptr);
 }
 
 //---------------------------------------------------------------------------------------------------
@@ -1094,6 +1093,7 @@ void VulkanRenderer::DestroyCommandBuffers()
 	if (m_commandBuffers.size() > 0)
 	{
 		vkFreeCommandBuffers(m_logicalDevices[0], m_commandPool, (uint32_t)m_commandBuffers.size(), m_commandBuffers.data());
+		m_commandBuffers.clear();
 	}
 }
 
@@ -1121,6 +1121,12 @@ void VulkanRenderer::DestroySemaphores()
 void VulkanRenderer::RecreateSwapChain()
 {
 	vkDeviceWaitIdle(m_logicalDevices[0]);
+	DestroyCommandBuffers();
+	DestroyFrameBuffers();
+	DestroyGraphicsPipeline();
+	DestroyRenderPass();
+	DestroyImageViews();
+
 	CreateSwapChain();
 	CreateImageViews();
 	CreateRenderPass();

@@ -53,13 +53,13 @@ private:
 	void									SetupValidationLayerCallback();
 	VkResult								CreateDebugReportCallbackEXT(VkInstance instance, const VkDebugReportCallbackCreateInfoEXT* pCreateInfo, const VkAllocationCallbacks* pAllocator, VkDebugReportCallbackEXT* pCallback);
 	void									DestroyDebugReportCallbackEXT(VkInstance instance, VkDebugReportCallbackEXT callback, const VkAllocationCallbacks* pAllocator);
-	void									CreateCommandBuffers();
 	void									GatherPhysicalDevices();
 	bool									IsPhysicalDeviceSuitable(VkPhysicalDevice deviceToCheck);
+	void									DestroyPhysicalDevices();
 	QueueFamilyIndices						FindQueueFamilies(const VkPhysicalDevice& device);
 	bool									CheckDeviceExtensioSupport(const VkPhysicalDevice& device);
 	void									CreateLogicalDevice(const VkPhysicalDevice& physicalDevice);
-	void									DestroyLogicalDevice();
+	void									DestroyLogicalDevices();
 	void									CreateSurface();
 	void									DestroySurface();
 	SwapChainSupportDetails					QuerySwapChainSupport(const VkPhysicalDevice& device);
@@ -68,6 +68,17 @@ private:
 	VkExtent2D								ChooseSwapExtent(const VkSurfaceCapabilitiesKHR& capabilities);
 	void									CreateSwapChain();
 	void									DestroySwapChain();
+	void									CreateImageViews();
+	void									DestroyImageViews();
+	void									CreateGraphicsPipeline();
+	void									DestroyGraphicsPipeline();
+	void									CreateShaderModule(const std::vector<char>& code, VkShaderModule& shaderModuleToCreate);
+	void									DestroyShaderModule(VkShaderModule& shaderModuleToDestroy);
+	static std::vector<char>				ReadFile(const std::string& fileName);
+	void									CreateRenderPass();
+	void									DestroyRenderPass();
+	void									CreateFrameBuffers();
+	void									DestroyFrameBuffers();
 
 private:
 	VkInstance								m_instance;
@@ -85,5 +96,10 @@ private:
 	std::vector<VkImage>					m_swapChainImages;
 	VkFormat								m_swapChainImageFormat;
 	VkExtent2D								m_swapChainExtent;
+	std::vector<VkImageView>				m_imageViews;
+	VkPipelineLayout						m_pipelineLayout;
+	VkRenderPass							m_renderPass;
+	VkPipeline								m_graphicsPipeline;
+	std::vector<VkFramebuffer>				m_swapChainFrameBuffers;
 };
 #endif // !_VULKAN_RENDERER_H_

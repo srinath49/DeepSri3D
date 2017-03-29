@@ -17,6 +17,9 @@
     <Filter Include="EngineCode\Window">
       <UniqueIdentifier>{e4da14ef-fbdc-4e64-8d3d-f50bb1de450f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="EngineCode\Renderer\Shaders">
+      <UniqueIdentifier>{4a44c54a-6f71-4182-8bc7-f7e46d2b7d2f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />

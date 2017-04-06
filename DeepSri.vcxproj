@@ -312,6 +312,11 @@
     <ClInclude Include="EngineCode\Window\BaseWindow.hpp" />
     <ClInclude Include="EngineCode\Window\GlfwWindow.hpp" />
     <ClInclude Include="Main\PrecompiledDefinitions.hpp" />
+    <ClInclude Include="VertexData.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="EngineCode\Renderer\Shaders\DefaultShader.frag" />
+    <None Include="EngineCode\Renderer\Shaders\DefaultShader.vert" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

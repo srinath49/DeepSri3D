@@ -7,10 +7,19 @@
 #include "EngineCOde/Window/GlfwWindow.hpp"
 #include <fstream>
 #include "EngineCode/App/Win32VulkanApp.hpp"
+#include "VertexData.hpp"
 
 //---------------------------------------------------------------------------------------------------
-const int WIDTH = 800;
-const int HEIGHT = 600;
+const std::vector<Vertex> vertices = 
+{
+	{ { 0.0f, -0.5f },{ 1.0f, 0.0f, 0.0f } },
+	{ { 0.5f, 0.5f },{ 0.0f, 1.0f, 0.0f } },
+	{ { -0.5f, 0.5f },{ 0.0f, 0.0f, 1.0f } }
+};
+
+//---------------------------------------------------------------------------------------------------
+const int WIDTH		= 800;
+const int HEIGHT	= 600;
 
 //---------------------------------------------------------------------------------------------------
 VulkanRenderer::VulkanRenderer(BaseApp* appHandle)

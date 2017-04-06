@@ -72,5 +72,16 @@
     <ClInclude Include="Main\PrecompiledDefinitions.hpp">
       <Filter>Main</Filter>
     </ClInclude>
+    <ClInclude Include="VertexData.hpp">
+      <Filter>EngineCode\Renderer</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="EngineCode\Renderer\Shaders\DefaultShader.frag">
+      <Filter>EngineCode\Renderer\Shaders</Filter>
+    </None>
+    <None Include="EngineCode\Renderer\Shaders\DefaultShader.vert">
+      <Filter>EngineCode\Renderer\Shaders</Filter>
+    </None>
   </ItemGroup>
 </Project>

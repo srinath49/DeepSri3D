@@ -89,6 +89,13 @@ private:
 	void									CreateSemaphores();
 	void									DestroySemaphores();
 	void									RecreateSwapChain();
+	void									CreateVertexBuffer();
+	void									DestroyVertexBuffer();
+	void									CreateBuffer(VkDevice device, VkDeviceSize size, VkBufferUsageFlags usage, VkBuffer& buffer);
+	void									DeleteBuffer(VkDevice device, VkBuffer& bufferToFree);
+	void									AllocateBufferMemory(VkDevice device, VkMemoryPropertyFlags properties, VkDeviceMemory& bufferMemory, VkBuffer& bufferToAllocate);
+	void									FreeBufferMemory(VkDevice device, VkDeviceMemory& bufferMemory);
+	uint32_t								FindMemoryType(uint32_t typeFilter, VkMemoryPropertyFlags properties);
 
 private:
 	VkInstance								m_instance;
@@ -115,6 +122,8 @@ private:
 	std::vector<VkCommandBuffer>			m_commandBuffers;
 	VkSemaphore								m_imageAvailableSemaphore;
 	VkSemaphore								m_renderFinishedSemaphore;
+	VkBuffer								m_vertexBuffer;
+	VkDeviceMemory							m_vertexBufferMemory;
 
 };
 #endif // !_VULKAN_RENDERER_H_

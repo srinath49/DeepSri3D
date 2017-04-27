@@ -29,7 +29,7 @@
   <PropertyGroup Label="Globals">
     <ProjectGuid>{8D241CFE-2A91-437F-994B-59408783CD61}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>DeepSri3D</RootNamespace>
+    <RootNamespace>DeepiSri3D</RootNamespace>
     <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -151,7 +151,8 @@
       <AdditionalLibraryDirectories>$(SolutionDir)ExtLibs\GLFW\glfwWIN32\lib-vc2015;C:\VulkanSDK\1.0.39.0\Bin32;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <PostBuildEvent>
-      <Command>echo f | xcopy /Y /R /E "$(TargetPath)" "$(SolutionDir)Builds\$(PlatformName)\$(ConfigurationName)\$(TargetFileName)"</Command>
+      <Command>echo f | xcopy /Y /R /E "$(TargetPath)" "$(SolutionDir)Builds\$(PlatformName)\$(ConfigurationName)\$(TargetFileName)"
+call "$(SolutionDir)EngineCode/Renderer/Shaders/CompileDefaultShaders.bat"</Command>
     </PostBuildEvent>
     <PostBuildEvent>
       <Message>Copying $(TargetFileName) to Builds\$(PlatformName)\$(ConfigurationName)\$(TargetFileName)</Message>
@@ -178,7 +179,8 @@
       <AdditionalLibraryDirectories>$(SolutionDir)ExtLibs\GLFW\glfwWIN32\lib-vc2015;C:\VulkanSDK\1.0.39.0\Bin32;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <PostBuildEvent>
-      <Command>echo f | xcopy /Y /R /E "$(TargetPath)" "$(SolutionDir)Builds\$(PlatformName)\$(ConfigurationName)\$(TargetFileName)"</Command>
+      <Command>echo f | xcopy /Y /R /E "$(TargetPath)" "$(SolutionDir)Builds\$(PlatformName)\$(ConfigurationName)\$(TargetFileName)"
+call "$(SolutionDir)EngineCode/Renderer/Shaders/CompileDefaultShaders.bat"</Command>
     </PostBuildEvent>
     <PostBuildEvent>
       <Message>Copying $(TargetFileName) to Builds\$(PlatformName)\$(ConfigurationName)\$(TargetFileName)</Message>
@@ -203,7 +205,8 @@
       <AdditionalLibraryDirectories>$(SolutionDir)ExtLibs\GLFW\glfwWIN64\lib-vc2015;C:\VulkanSDK\1.0.39.0\Bin;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <PostBuildEvent>
-      <Command>echo f | xcopy /Y /R /E "$(TargetPath)" "$(SolutionDir)Builds\$(PlatformName)\$(ConfigurationName)\$(TargetFileName)"</Command>
+      <Command>echo f | xcopy /Y /R /E "$(TargetPath)" "$(SolutionDir)Builds\$(PlatformName)\$(ConfigurationName)\$(TargetFileName)"
+call "$(SolutionDir)EngineCode/Renderer/Shaders/CompileDefaultShaders.bat"</Command>
     </PostBuildEvent>
     <PostBuildEvent>
       <Message>Copying $(TargetFileName) to Builds\$(PlatformName)\$(ConfigurationName)\$(TargetFileName)</Message>
@@ -229,7 +232,8 @@
       <AdditionalLibraryDirectories>$(SolutionDir)ExtLibs\GLFW\glfwWIN64\lib-vc2015;C:\VulkanSDK\1.0.39.0\Bin;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <PostBuildEvent>
-      <Command>echo f | xcopy /Y /R /E "$(TargetPath)" "$(SolutionDir)Builds\$(PlatformName)\$(ConfigurationName)\$(TargetFileName)"</Command>
+      <Command>echo f | xcopy /Y /R /E "$(TargetPath)" "$(SolutionDir)Builds\$(PlatformName)\$(ConfigurationName)\$(TargetFileName)"
+call "$(SolutionDir)EngineCode/Renderer/Shaders/CompileDefaultShaders.bat"</Command>
     </PostBuildEvent>
     <PostBuildEvent>
       <Message>Copying $(TargetFileName) to Builds\$(PlatformName)\$(ConfigurationName)\$(TargetFileName)</Message>
@@ -257,7 +261,8 @@
       <AdditionalLibraryDirectories>$(SolutionDir)ExtLibs\GLFW\glfwWIN32\lib-vc2015;C:\VulkanSDK\1.0.39.0\Bin32;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <PostBuildEvent>
-      <Command>echo f | xcopy /Y /R /E "$(TargetPath)" "$(SolutionDir)Builds\$(PlatformName)\$(ConfigurationName)\$(TargetFileName)"</Command>
+      <Command>echo f | xcopy /Y /R /E "$(TargetPath)" "$(SolutionDir)Builds\$(PlatformName)\$(ConfigurationName)\$(TargetFileName)"
+call "$(SolutionDir)EngineCode/Renderer/Shaders/CompileDefaultShaders.bat"</Command>
     </PostBuildEvent>
     <PostBuildEvent>
       <Message>Copying $(TargetFileName) to Builds\$(PlatformName)\$(ConfigurationName)\$(TargetFileName)</Message>
@@ -285,7 +290,8 @@
       <AdditionalLibraryDirectories>$(SolutionDir)ExtLibs\GLFW\glfwWIN64\lib-vc2015;C:\VulkanSDK\1.0.39.0\Bin;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <PostBuildEvent>
-      <Command>echo f | xcopy /Y /R /E "$(TargetPath)" "$(SolutionDir)Builds\$(PlatformName)\$(ConfigurationName)\$(TargetFileName)"</Command>
+      <Command>echo f | xcopy /Y /R /E "$(TargetPath)" "$(SolutionDir)Builds\$(PlatformName)\$(ConfigurationName)\$(TargetFileName)"
+call "$(SolutionDir)EngineCode/Renderer/Shaders/CompileDefaultShaders.bat"</Command>
     </PostBuildEvent>
     <PostBuildEvent>
       <Message>Copying $(TargetFileName) to Builds\$(PlatformName)\$(ConfigurationName)\$(TargetFileName)</Message>

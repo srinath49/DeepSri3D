@@ -20,6 +20,7 @@ int main()
 		std::cerr << e.what() << std::endl;
 		return EXIT_FAILURE;
 	}
-
+	std::cout << "Press enter to exit" << std::endl;
+	getchar();
 	return EXIT_SUCCESS;
 }

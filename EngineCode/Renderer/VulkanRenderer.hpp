@@ -92,10 +92,23 @@ private:
 	void									CreateVertexBuffer();
 	void									DestroyVertexBuffer();
 	void									CreateBuffer(VkDevice device, VkDeviceSize size, VkBufferUsageFlags usage, VkBuffer& buffer);
-	void									DeleteBuffer(VkDevice device, VkBuffer& bufferToFree);
+	void									DestroyBuffer(VkDevice device, VkBuffer& bufferToFree);
 	void									AllocateBufferMemory(VkDevice device, VkMemoryPropertyFlags properties, VkDeviceMemory& bufferMemory, VkBuffer& bufferToAllocate);
 	void									FreeBufferMemory(VkDevice device, VkDeviceMemory& bufferMemory);
 	uint32_t								FindMemoryType(uint32_t typeFilter, VkMemoryPropertyFlags properties);
+	void									CreateStagingBuffer(VkDevice device, VkDeviceSize size, VkBuffer& bufferToCreate, VkDeviceMemory& memoryToCreate);
+	void									DestroyStagingBuffer(VkDevice device, VkBuffer& bufferToDestroy, VkDeviceMemory& memoryToFree);
+	void									CopyBuffer(VkDevice device, VkBuffer srcBuffer, VkBuffer dstBuffer, VkDeviceSize size);
+	void									CreateIndexBuffer();
+	void									DestroyIndexBuffer();
+	void									CreateDescriptorSetLayout(const VkDevice& device);
+	void									DestroyDescriptorSetLayout(const VkDevice& device);
+	void									CreateUniformBuffer();
+	void									DestroyUniformBuffer();
+	void									UpdateUniformBuffer(const VkDevice& device);
+	void									CreateDescriptorPool(const VkDevice& device);
+	void									DestroyDescriptorPool(const VkDevice& device);
+	void									CreateDescriptorSet(const VkDevice& device);
 
 private:
 	VkInstance								m_instance;
@@ -114,6 +127,7 @@ private:
 	VkFormat								m_swapChainImageFormat;
 	VkExtent2D								m_swapChainExtent;
 	std::vector<VkImageView>				m_imageViews;
+	VkDescriptorSetLayout					m_descriptorSetLayout;
 	VkPipelineLayout						m_pipelineLayout;
 	VkRenderPass							m_renderPass;
 	VkPipeline								m_graphicsPipeline;
@@ -124,6 +138,14 @@ private:
 	VkSemaphore								m_renderFinishedSemaphore;
 	VkBuffer								m_vertexBuffer;
 	VkDeviceMemory							m_vertexBufferMemory;
+	VkBuffer								m_indexBuffer;
+	VkDeviceMemory							m_indexBufferMemory;
+	VkBuffer								m_uniformBuffer;
+	VkDeviceMemory							m_uniformBufferMemory;
+	VkBuffer								m_uniformStagingBuffer;
+	VkDeviceMemory							m_uniformStagingBufferMemory;
+	VkDescriptorPool						m_descriptorPool;
+	VkDescriptorSet							m_descriptorSet;
 
 };
 #endif // !_VULKAN_RENDERER_H_

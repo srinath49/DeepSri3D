@@ -20,6 +20,9 @@
     <Filter Include="EngineCode\Renderer\Shaders">
       <UniqueIdentifier>{4a44c54a-6f71-4182-8bc7-f7e46d2b7d2f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="EngineCode\Renderer\Textures">
+      <UniqueIdentifier>{59a6db7f-78fd-43ba-9e0f-930c559367f3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />

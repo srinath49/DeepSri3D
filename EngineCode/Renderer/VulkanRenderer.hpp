@@ -72,7 +72,9 @@ private:
 	void									CreateSwapChain();
 	void									DestroySwapChain();
 	void									CreateImageViews();
+	void									CreateImageView(const VkDevice& device, VkImageView& imageViewToCreate, const VkImage& imageToCreateViewFor, VkFormat imageFormat);
 	void									DestroyImageViews();
+	void									DestroyImageView(const VkDevice& device, VkImageView& imageViewToDestroy);
 	void									CreateGraphicsPipeline();
 	void									DestroyGraphicsPipeline();
 	void									CreateShaderModule(const std::vector<char>& code, VkShaderModule& shaderModuleToCreate);
@@ -91,14 +93,14 @@ private:
 	void									RecreateSwapChain();
 	void									CreateVertexBuffer();
 	void									DestroyVertexBuffer();
-	void									CreateBuffer(VkDevice device, VkDeviceSize size, VkBufferUsageFlags usage, VkBuffer& buffer);
-	void									DestroyBuffer(VkDevice device, VkBuffer& bufferToFree);
-	void									AllocateBufferMemory(VkDevice device, VkMemoryPropertyFlags properties, VkDeviceMemory& bufferMemory, VkBuffer& bufferToAllocate);
-	void									FreeBufferMemory(VkDevice device, VkDeviceMemory& bufferMemory);
+	void									CreateBuffer(const VkDevice& device, const VkDeviceSize& size, VkBufferUsageFlags usage, VkBuffer& buffer);
+	void									DestroyBuffer(const VkDevice& device, VkBuffer& bufferToFree);
+	void									AllocateBufferMemory(const VkDevice& device, VkMemoryPropertyFlags properties, VkDeviceMemory& bufferMemory, VkBuffer& bufferToAllocate);
+	void									FreeBufferMemory(const VkDevice& device, VkDeviceMemory& bufferMemory);
 	uint32_t								FindMemoryType(uint32_t typeFilter, VkMemoryPropertyFlags properties);
-	void									CreateStagingBuffer(VkDevice device, VkDeviceSize size, VkBuffer& bufferToCreate, VkDeviceMemory& memoryToCreate);
-	void									DestroyStagingBuffer(VkDevice device, VkBuffer& bufferToDestroy, VkDeviceMemory& memoryToFree);
-	void									CopyBuffer(VkDevice device, VkBuffer srcBuffer, VkBuffer dstBuffer, VkDeviceSize size);
+	void									CreateStagingBuffer(const VkDevice& device, VkDeviceSize size, VkBuffer& bufferToCreate, VkDeviceMemory& memoryToCreate);
+	void									DestroyStagingBuffer(const VkDevice& device, VkBuffer& bufferToDestroy, VkDeviceMemory& memoryToFree);
+	void									CopyBuffer(const VkDevice& device, const VkBuffer& srcBuffer, const VkBuffer& dstBuffer, VkDeviceSize size);
 	void									CreateIndexBuffer();
 	void									DestroyIndexBuffer();
 	void									CreateDescriptorSetLayout(const VkDevice& device);
@@ -109,6 +111,26 @@ private:
 	void									CreateDescriptorPool(const VkDevice& device);
 	void									DestroyDescriptorPool(const VkDevice& device);
 	void									CreateDescriptorSet(const VkDevice& device);
+	void									CreateTextureImage(const VkDevice& device);
+	void									DestroyTextureImage(const VkDevice& device);
+	void									CreateImage(const VkDevice& device, VkImage& imageToCreate, VkFlags usage, VkFormat format, VkImageTiling tiling, VkImageLayout layout, uint32_t width, uint32_t height);
+	void									DestroyImage(const VkDevice& device, VkImage& imageToDestroy);
+	void									AllocateImageMemory(const VkDevice& device, VkDeviceMemory& imageMemToAllocate, const VkImage& imageToAllocateMemFor, VkMemoryPropertyFlags memPropertyFlags);
+	void									FreeImageMemory(const VkDevice& device, VkDeviceMemory& imageMemToFree);
+	void									BindImage(const VkDevice& device, const VkImage& imageToBind, const VkDeviceMemory& memoryToBind, uint32_t imageOffset);
+	void									MapImage(const VkDevice& device, const VkImage& imageToMap, const VkDeviceMemory& memoryToMap, uint32_t imageSize, uint32_t width, uint32_t height, void* pixels);
+	void									UnmapImageMemory(const VkDevice& device, const VkDeviceMemory& memoryToBind);
+	VkCommandBuffer							BeginSingleTimeCommands(const VkDevice& device, const VkCommandPool& commandPool);
+	void									EndSingleTimeCommands(const VkDevice& device, const VkCommandBuffer& commandBuffer, const VkCommandPool& commandPool, const VkQueue& queueToSubmit);
+	void									TransitionImageLayout(const VkDevice& device, const VkCommandPool& commandPool, const VkQueue& queueToSubmit, const VkImage& image, const VkFormat& format, const VkImageLayout& oldLayout, const VkImageLayout& newLayout);
+	void									CopyImage(const VkDevice& device, const VkCommandPool& commandPool, const VkQueue& queueToSubmit, const VkFormat& format, const VkImage& srcImage, VkImage& dstImage, uint32_t width, uint32_t height);
+	void									CreateTextureImageView(const VkDevice& device, const VkImage& imageToCreateViewFor, VkImageView& imageViewToCreate);
+	void									DestroyTextureImageView(const VkDevice& device, VkImageView& imageViewToDestroy);
+	void									CreateSampler(const VkDevice& device, VkSampler& samplerToCreate);
+	void									DestroySampler(const VkDevice& device, VkSampler& samplerToDestroy);
+	void									CreateTextureSampler(const VkDevice& device);
+	void									DestroyTextureSampler(const VkDevice& device);
+
 
 private:
 	VkInstance								m_instance;
@@ -146,6 +168,10 @@ private:
 	VkDeviceMemory							m_uniformStagingBufferMemory;
 	VkDescriptorPool						m_descriptorPool;
 	VkDescriptorSet							m_descriptorSet;
+	VkImage									m_textureImage;
+	VkDeviceMemory							m_textureImageMemory;
+	VkImageView								m_textureImageView;
+	VkSampler								m_textureSampler;
 
 };
 #endif // !_VULKAN_RENDERER_H_

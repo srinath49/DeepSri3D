@@ -304,6 +304,7 @@ call "$(SolutionDir)EngineCode/Renderer/Shaders/CompileDefaultShaders.bat"</Comm
     <ClCompile Include="EngineCode\App\BaseApp.cpp" />
     <ClCompile Include="EngineCode\App\Win32VulkanApp.cpp" />
     <ClCompile Include="EngineCode\Renderer\BaseRenderer.cpp" />
+    <ClCompile Include="EngineCode\Renderer\Mesh.cpp" />
     <ClCompile Include="EngineCode\Renderer\VulkanRenderer.cpp" />
     <ClCompile Include="EngineCode\Window\BaseWindow.cpp" />
     <ClCompile Include="EngineCode\Window\GlfwWindow.cpp" />
@@ -314,6 +315,7 @@ call "$(SolutionDir)EngineCode/Renderer/Shaders/CompileDefaultShaders.bat"</Comm
     <ClInclude Include="EngineCode\App\BaseApp.hpp" />
     <ClInclude Include="EngineCode\App\Win32VulkanApp.hpp" />
     <ClInclude Include="EngineCode\Renderer\BaseRenderer.hpp" />
+    <ClInclude Include="EngineCode\Renderer\Mesh.hpp" />
     <ClInclude Include="EngineCode\Renderer\VulkanRenderer.hpp" />
     <ClInclude Include="EngineCode\Window\BaseWindow.hpp" />
     <ClInclude Include="EngineCode\Window\GlfwWindow.hpp" />

@@ -7,6 +7,7 @@
 #include "BaseRenderer.hpp"
 #include "vulkan\vulkan.h"
 #include <vector>
+#include "VertexData.hpp"
 
 //---------------------------------------------------------------------------------------------------
 class BaseWindow;
@@ -72,7 +73,7 @@ private:
 	void									CreateSwapChain();
 	void									DestroySwapChain();
 	void									CreateImageViews();
-	void									CreateImageView(const VkDevice& device, VkImageView& imageViewToCreate, const VkImage& imageToCreateViewFor, VkFormat imageFormat);
+	void CreateImageView(const VkDevice& device, VkImageView& imageViewToCreate, const VkImage& imageToCreateViewFor, VkFormat imageFormat, VkImageAspectFlags aspectFlags);
 	void									DestroyImageViews();
 	void									DestroyImageView(const VkDevice& device, VkImageView& imageViewToDestroy);
 	void									CreateGraphicsPipeline();
@@ -130,7 +131,13 @@ private:
 	void									DestroySampler(const VkDevice& device, VkSampler& samplerToDestroy);
 	void									CreateTextureSampler(const VkDevice& device);
 	void									DestroyTextureSampler(const VkDevice& device);
-
+	void									CreateTextureResources(const VkDevice& device, bool createImage = true);
+	void									DestroyTextureResources(const VkDevice& device, bool destroyImage = true);
+	void									CreateDepthResources(const VkDevice& device);
+	void									DestroyDepthResources(const VkDevice& device);
+	VkFormat								FindSupportedFormat(const std::vector<VkFormat>& candidates, VkImageTiling tiling, VkFormatFeatureFlags features);
+	VkFormat								FindDepthFormat();
+	bool									HasStencilComponent(VkFormat format);
 
 private:
 	VkInstance								m_instance;
@@ -172,6 +179,11 @@ private:
 	VkDeviceMemory							m_textureImageMemory;
 	VkImageView								m_textureImageView;
 	VkSampler								m_textureSampler;
+	VkImage									m_depthImage;
+	VkDeviceMemory							m_depthImageMemory;
+	VkImageView								m_depthImageView;
+	std::vector<Vertex>						m_vertices;
+	std::vector<uint32_t>					m_indices;
 
 };
 #endif // !_VULKAN_RENDERER_H_

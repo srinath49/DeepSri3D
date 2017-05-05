@@ -52,6 +52,9 @@
     <ClCompile Include="Main\PrecompiledDefinitions.cpp">
       <Filter>Main</Filter>
     </ClCompile>
+    <ClCompile Include="EngineCode\Renderer\Mesh.cpp">
+      <Filter>EngineCode\Renderer</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="EngineCode\Renderer\BaseRenderer.hpp">
@@ -76,6 +79,9 @@
       <Filter>Main</Filter>
     </ClInclude>
     <ClInclude Include="VertexData.hpp">
+      <Filter>EngineCode\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="EngineCode\Renderer\Mesh.hpp">
       <Filter>EngineCode\Renderer</Filter>
     </ClInclude>
   </ItemGroup>
